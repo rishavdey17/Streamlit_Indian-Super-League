@@ -68,25 +68,33 @@ if match_names:
             shot_miss = df[df['typeId'] == 13]
             shot_post = df[df['typeId'] == 14]
             shot_saved = df[df['typeId'] == 15]
-            recovery = df[df['typeId'] == 49]
-            offside = df[df['typeId'] == 55]
-            shield = df[df['typeId'] == 56]
-            tackle = df[df['typeId'] == 7]
-            succ_tackle = tackle[tackle['outcome'] == 1]
-            interception = df[df['typeId'] == 8]
-            block = df[df['typeId'] == 10]
-            clearance = df[df['typeId'] == 12]
-            foul = df[df['typeId'] == 4]
-            foul_won = foul[foul['outcome'] == 1]
-            dribble = df[df['typeId'] == 3]
-            succ_dribble = dribble[dribble['outcome'] == 1]
-            aerial = df[df['typeId'] == 44]
-            aerial_won = aerial[aerial['outcome'] == 1]
+            
             assist = df[df['assist'] == 1]
             chance = df[df['keyPass'] == 1]
             passes = df[df['typeId'] == 1]
             passes_successful = passes[passes['outcome'] == 1]
             passes_unsuccessful = passes[passes['outcome'] == 0]
+            
+            recovery = df[df['typeId'] == 49]
+            offside = df[df['typeId'] == 55]
+            shield = df[df['typeId'] == 56]
+            
+            tackle = df[df['typeId'] == 7]
+            succ_tackle = tackle[tackle['outcome'] == 1]
+            
+            interception = df[df['typeId'] == 8]
+            block = df[df['typeId'] == 10]
+            clearance = df[df['typeId'] == 12]
+            
+            foul = df[df['typeId'] == 4]
+            foul_won = foul[foul['outcome'] == 1]
+            
+            dribble = df[df['typeId'] == 3]
+            succ_dribble = dribble[dribble['outcome'] == 1]
+            
+            aerial = df[df['typeId'] == 44]
+            aerial_won = aerial[aerial['outcome'] == 1]
+            
             pickup = df[df['typeId'] == 52]
             punch = df[df['typeId'] == 41]
 
@@ -126,6 +134,8 @@ if match_names:
             plt.scatter(aerial_won['y'], aerial_won['x'], s = 100, c = '#9999ff', marker = '^', edgecolor = '#000000', label = 'Aerial Won')
             plt.scatter(offside['y'], offside['x'], s= 120, c = 'r', marker = 'P', edgecolor = '#000000', label = 'Offside Provoked')
             plt.scatter(shield['y'], shield['x'], s = 120, c = '#dd571c', marker = 'H', edgecolor = '#000000', label = 'Shielding Ball Out')
+            plt.scatter(punch['y'], punch['x'], s = 100, c = '#ff007f', marker = '^', edgecolor = '#000000', label = 'Keeper Punch')
+            ax.scatter(pickup['y'], pickup['x'], s = 120, c = '#dd571c', marker = 'P', edgecolor = '#000000', label = 'Keeper Pick-Up')
 
             ax.legend(loc='upper left', bbox_to_anchor=(-0.2, 1.15), framealpha=0.6, ncol=4, edgecolor='#000000')
 
@@ -133,7 +143,7 @@ if match_names:
         plot_actions(filtered_data, ax, pitch)
 
         # Add a footer to the figure
-        endnote = "Made by Rishav. Data Source: OPTA. Built Using: Python and Streamlit."
+        endnote = "Made by Rishav Dey. Data Source: OPTA. Built Using: Python and Streamlit."
         plt.figtext(0.515, 0.11, endnote, ha="center", va="top", fontsize=13, color="white")
 
         st.pyplot(fig)
