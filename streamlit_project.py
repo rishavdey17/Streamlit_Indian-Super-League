@@ -11,7 +11,7 @@ from mplsoccer.pitch import Pitch, VerticalPitch
 st.title("Indian Super League 2024-25")
 st.subheader("Actions and Heat Map of all players in the match.")
 
-df = pd.read_csv('Match 121 - FC Goa 2-1 Odisha FC.csv')
+df = pd.read_csv('Match 121 - FC Goa 2-1 Odisha FC..csv')
 
 
 player = st.selectbox("Select A Player", df['playerName'].sort_values().unique(), index = None)
