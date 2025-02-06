@@ -1,6 +1,3 @@
 pandas
 mplsoccer
-numpy
-glob
-os
-matplotlib.pyplot
+
