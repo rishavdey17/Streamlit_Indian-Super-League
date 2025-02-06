@@ -22,7 +22,8 @@ match_names = [os.path.basename(file).replace(".csv", "") for file in match_file
 
 if match_names:
     # Allow user to select a match
-    selected_match = st.selectbox("Select A Match", match_names)
+    selected_match = st.selectbox("Select A Match - ", match_names)
+    st.write(f"Loaded data for: {selected_match}")
 
     # Load the selected match's data
     file_path = os.path.join(MATCHES_DIR, f"{selected_match}.csv")
@@ -46,7 +47,7 @@ if match_names:
             )
 
         # Player selection
-        player = st.selectbox("Select A Player", df['playerName'].sort_values().unique(), index = None)
+        player = st.selectbox("Select A Player - ", df['playerName'].sort_values().unique(), index = None)
 
         # Filter data based on selected player
         def filter_data(df, player):
