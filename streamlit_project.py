@@ -11,11 +11,6 @@ from mplsoccer.pitch import Pitch, VerticalPitch
 st.title("Indian Super League 2024-25")
 st.subheader("Actions and Heat Map of all players in the match.")
 
-#import os
-import streamlit as st
-import pandas as pd
-import glob
-
 # Get the absolute path of the Matches directory
 MATCHES_DIR = os.path.join(os.getcwd(), "Matches")  # Adjust if needed
 
