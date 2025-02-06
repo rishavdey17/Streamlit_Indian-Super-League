@@ -8,16 +8,19 @@ import os
 
 from mplsoccer.pitch import VerticalPitch
 
+# Add custom CSS to hide GitHub link in top-right corner
 st.markdown(
     """
     <style>
-    /* Hide GitHub icon in the top right corner */
-    .css-1d391kg {
-        display: none;
-    }
+    /* Hide the entire footer */
+    footer {display: none;}
+
+    /* Or, if you just want to hide the GitHub icon specifically */
+    .css-14xtw13 {display: none;}
     </style>
     """, unsafe_allow_html=True
 )
+
 
 st.title("Indian Super League 2024-25")
 st.subheader("Actions and Heat Map of all players in the match.")
