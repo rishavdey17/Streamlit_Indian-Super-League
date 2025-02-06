@@ -31,7 +31,7 @@ if match_names:
     file_path = os.path.join(MATCHES_DIR, f"{selected_match}.csv")  # Correct path
 
     if os.path.exists(file_path):
-        df = pd.read_csv(file_path, encoding="latin-1")
+        df = pd.read_csv(file_path, encoding="utf-8")
         st.write(f"Loaded data for: {selected_match}")
 
         # Extract columns containing '/qualifierId' and '/value'
