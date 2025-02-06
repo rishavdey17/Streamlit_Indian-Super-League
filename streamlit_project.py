@@ -13,6 +13,19 @@ st.subheader("Actions and Heat Map of all players in the match.")
 
 df = pd.read_csv('Match 121 - FC Goa 2-1 Odisha FC..csv')
 
+qualifier_id_cols = [col for col in df.columns if "/qualifierId" in col]
+qualifier_value_cols = [col.replace("/qualifierId", "/value") for col in qualifier_id_cols]
+
+df['end_x'] = None
+df['end_y'] = None
+
+for id_col, value_col in zip(qualifier_id_cols, qualifier_value_cols):
+    df['end_x'] = df.apply(
+        lambda row: row[value_col] if row[id_col] == 140 else row['end_x'], axis=1
+    )
+    df['end_y'] = df.apply(
+        lambda row: row[value_col] if row[id_col] == 141 else row['end_y'], axis=1
+    )
 
 player = st.selectbox("Select A Player", df['playerName'].sort_values().unique(), index = None)
 
