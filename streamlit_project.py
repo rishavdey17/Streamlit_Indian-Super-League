@@ -29,7 +29,7 @@ match_files = glob.glob(os.path.join(MATCHES_DIR, "*.csv"))
 match_names = [os.path.basename(file).replace(".csv", "") for file in match_files]
 
 if match_names:
-    selected_match = st.selectbox("Select A Match - ", match_names.sort_values().unique())
+    selected_match = st.selectbox("Select A Match - ", sorted(match_names))
     st.write(f"Loaded data for: {selected_match}")
 
     # Load the match data
