@@ -60,7 +60,7 @@ if match_names:
             selected_team = st.radio("Select Team -", [team1, team2])
 
             # Filter players based on selected team
-            team_players = df[df['teamName'] == selected_team]['playerName'].sort_values().unique()
+            team_players = df[df['teamName'] == selected_team]['playerName'].dropna().sort_values().unique()
             player = st.selectbox(f"Select a Player from {selected_team} -", team_players, index=None)
 
             # Filter data for selected player
