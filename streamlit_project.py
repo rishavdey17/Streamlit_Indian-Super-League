@@ -132,6 +132,20 @@ if match_names:
                 pitch.arrows(passes_unsuccessful.x, passes_unsuccessful.y, passes_unsuccessful.end_x, passes_unsuccessful.end_y, width=0.75,
                             headwidth=5, headlength=5, color='red', ax=ax, label='Incomplete Pass')
 
+                plt.scatter(succ_dribble['y'], succ_dribble['x'], s= 120, c = '#dc6601', marker = 'X', edgecolor = '#000000', label = 'Dribble')
+                plt.scatter(foul_won['y'], foul_won['x'], s= 120, c = '#009afd', marker = 'X', edgecolor = '#000000', label = 'Foul Won')
+                plt.scatter(tackle['y'], tackle['x'], s= 100,c = 'w', marker = ',', edgecolor = '#000000', label = 'Tackle')
+                plt.scatter(recovery['y'], recovery['x'], s= 100, c = '#ffea00', marker = ',', edgecolor = '#000000', label = 'Ball Recovery')
+                plt.scatter(interception['y'], interception['x'], s = 100, c = '#ff007f', marker = ',', edgecolor = '#000000', label = 'Interception')
+                plt.scatter(block['y'], block['x'], s = 100, c = '#008080', marker = ',', edgecolor = '#000000', label ='Block')
+                plt.scatter(clearance['y'], clearance['x'], s = 120, c = '#00ffff', marker = '^', edgecolor = '#000000', label = 'Clearance')
+                plt.scatter(aerial_won['y'], aerial_won['x'], s = 100, c = '#9999ff', marker = '^', edgecolor = '#000000', label = 'Aerial Won')
+                plt.scatter(offside['y'], offside['x'], s= 120, c = 'r', marker = 'P', edgecolor = '#000000', label = 'Offside Provoked')
+                plt.scatter(shield['y'], shield['x'], s = 120, c = '#dd571c', marker = 'H', edgecolor = '#000000', label = 'Shielding Ball Out')
+                plt.scatter(punch['y'], punch['x'], s = 100, c = '#ff007f', marker = '^', edgecolor = '#000000', label = 'Keeper Punch')
+                ax.scatter(pickup['y'], pickup['x'], s = 120, c = '#dd571c', marker = 'P', edgecolor = '#000000', label = 'Keeper Pick-Up')
+
+
                 ax.legend(loc='upper left', bbox_to_anchor=(-0.2, 1.15), framealpha=0.9, ncol=4, edgecolor='#000000')
 
             # Plot player actions
