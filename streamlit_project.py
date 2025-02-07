@@ -60,9 +60,26 @@ if match_names:
                 lambda row: row[value_col] if row[id_col] == 141 else row['end_y'], axis=1
             )
 
-        # Player selection
-        player = st.selectbox("Select A Player - ", df['playerName'].sort_values().unique(), index = None)
+       # Identify unique teams in the match
+    teams = df['teamName'].unique()
 
+    if len(teams) == 2:  # Ensure there are two teams
+        team1, team2 = teams
+
+# Create dropdowns for team selection
+        selected_team = st.radio("Select Team -", [team1, team2])
+
+# Filter players based on selected team
+        team_players = df[df['teamName'] == selected_team]['playerName'].sort_values().unique()
+
+# Player selection based on team
+        player = st.selectbox(f"Select a Player from {selected_team} -", team_players, index=None)
+
+# Now filter data based on the selected player
+        filtered_data = df[df['playerName'] == player]
+
+
+        # Player selection
         # Filter data based on selected player
         def filter_data(df, player):
             if player:
