@@ -171,11 +171,11 @@ def filter_data(df, player):
         ax.legend(loc='upper left', bbox_to_anchor=(-0.2, 1.15), framealpha=0.9, ncol=4, edgecolor='#000000')
 
         # Plot the selected match data
-        plot_actions(filtered_data, ax, pitch)
+    plot_actions(filtered_data, ax, pitch)
 
         # Add a footer to the figure
-        endnote = "Made by Rishav Dey. Data Source: OPTA. Built Using: Python and Streamlit."
-        plt.figtext(0.515, 0.115, endnote, ha="center", va="top", fontsize=13, color="white")
+    endnote = "Made by Rishav Dey. Data Source: OPTA. Built Using: Python and Streamlit."
+    plt.figtext(0.515, 0.115, endnote, ha="center", va="top", fontsize=13, color="white")
 
-        st.pyplot(fig)
+    st.pyplot(fig)
     
