@@ -179,5 +179,3 @@ def filter_data(df, player):
 
         st.pyplot(fig)
     
-else:
-    st.warning("No match files found in the 'Matches' folder.")
