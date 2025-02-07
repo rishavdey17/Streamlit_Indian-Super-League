@@ -114,6 +114,8 @@ if match_names:
                 for df_subset in [assist, chance, passes, passes_successful, passes_unsuccessful]:
                     df_subset[['x', 'y', 'end_x', 'end_y']] = df_subset[['x', 'y', 'end_x', 'end_y']].astype(float)
 
+                de = pitch.kdeplot(passes.x, passes.y, ax=ax, shade=True, shade_lowest=False, alpha=0.5, n_levels=10, cmap='magma')
+
                 # Plot player actions
                 ax.scatter(goal['y'], goal['x'], s=120, c='#00ff00', edgecolor='#000000', label='Goal')
                 ax.scatter(shot_saved['y'], shot_saved['x'], s=120, c='#ffea00', edgecolor='#000000', label='Saved/Blocked Shot')
