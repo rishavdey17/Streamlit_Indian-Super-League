@@ -84,7 +84,7 @@ filtered_data = df[df['playerName'] == player]
 def filter_data(df, player):
     if player:
         df = df[df['playerName'] == player]
-        return df
+    return df
 
     filtered_data = filter_data(df, player)
 
