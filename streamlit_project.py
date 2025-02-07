@@ -178,7 +178,6 @@ def filter_data(df, player):
         plt.figtext(0.515, 0.115, endnote, ha="center", va="top", fontsize=13, color="white")
 
         st.pyplot(fig)
-    else:
-        st.error(f"File {selected_match}.csv not found.")
+    
 else:
     st.warning("No match files found in the 'Matches' folder.")
