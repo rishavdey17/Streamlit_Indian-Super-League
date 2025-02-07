@@ -72,7 +72,7 @@ if match_names:
         filtered_data = filter_data(df, player)
 
         # Create pitch
-        pitch = VerticalPitch(pitch_type='opta', pitch_color='#09075a', line_color='#c7d5cc')
+        pitch = VerticalPitch(pitch_type='opta', pitch_color='black', line_color='white', linewidth = 3, corner_arcs = True)
         fig, ax = pitch.draw(figsize=(10, 10), constrained_layout=True, tight_layout=False)
         fig.set_facecolor('#09075a')
 
@@ -142,7 +142,7 @@ if match_names:
             plt.scatter(foul_won['y'], foul_won['x'], s= 120, c = '#009afd', marker = 'X', edgecolor = '#000000', label = 'Foul Won')
             plt.scatter(tackle['y'], tackle['x'], s= 100,c = 'w', marker = ',', edgecolor = '#000000', label = 'Tackle')
             plt.scatter(recovery['y'], recovery['x'], s= 100, c = '#ffea00', marker = ',', edgecolor = '#000000', label = 'Ball Recovery')
-            plt.scatter(interception['y'], interception['x'], s = 100, c = '#ff007f', marker = ',', edgecolor = '#000000', label = 'Interception')
+            plt.scatter(interception['y'], interception['x'], s = 100, c = '#00ffff', marker = ',', edgecolor = '#000000', label = 'Interception')
             plt.scatter(block['y'], block['x'], s = 100, c = '#008080', marker = ',', edgecolor = '#000000', label ='Block')
             plt.scatter(clearance['y'], clearance['x'], s = 120, c = '#dd571c', marker = '^', edgecolor = '#000000', label = 'Clearance')
             plt.scatter(aerial_won['y'], aerial_won['x'], s = 100, c = '#9999ff', marker = '^', edgecolor = '#000000', label = 'Aerial Won')
