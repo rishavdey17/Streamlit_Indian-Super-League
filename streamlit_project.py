@@ -74,7 +74,7 @@ if match_names:
         # Create pitch
         pitch = VerticalPitch(pitch_type='opta', pitch_color='black', line_color='white', linewidth = 3, corner_arcs = True)
         fig, ax = pitch.draw(figsize=(10, 10), constrained_layout=True, tight_layout=False)
-        fig.set_facecolor('#09075a')
+        fig.set_facecolor('black')
 
         # Function to plot actions on the pitch
         def plot_actions(df, ax, pitch):
@@ -151,14 +151,14 @@ if match_names:
             plt.scatter(punch['y'], punch['x'], s = 100, c = '#ff007f', marker = '^', edgecolor = '#000000', label = 'Keeper Punch')
             ax.scatter(pickup['y'], pickup['x'], s = 120, c = '#dd571c', marker = 'P', edgecolor = '#000000', label = 'Keeper Pick-Up')
 
-            ax.legend(loc='upper left', bbox_to_anchor=(-0.2, 1.15), framealpha=0.6, ncol=4, edgecolor='#000000')
+            ax.legend(loc='upper left', bbox_to_anchor=(-0.2, 1.15), framealpha=0.9, ncol=4, edgecolor='#000000')
 
         # Plot the selected match data
         plot_actions(filtered_data, ax, pitch)
 
         # Add a footer to the figure
         endnote = "Made by Rishav Dey. Data Source: OPTA. Built Using: Python and Streamlit."
-        plt.figtext(0.515, 0.11, endnote, ha="center", va="top", fontsize=13, color="white")
+        plt.figtext(0.515, 0.115, endnote, ha="center", va="top", fontsize=13, color="white")
 
         st.pyplot(fig)
     else:
