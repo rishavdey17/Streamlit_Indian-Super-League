@@ -63,20 +63,20 @@ if match_names:
        # Identify unique teams in the match
     teams = df['teamName'].unique()
 
-    if len(teams) == 2:  # Ensure there are two teams
-        team1, team2 = teams
+if len(teams) == 2:  # Ensure there are two teams
+    team1, team2 = teams
 
 # Create dropdowns for team selection
-        selected_team = st.radio("Select Team -", [team1, team2])
+selected_team = st.radio("Select Team -", [team1, team2])
 
 # Filter players based on selected team
-        team_players = df[df['teamName'] == selected_team]['playerName'].sort_values().unique()
+team_players = df[df['teamName'] == selected_team]['playerName'].sort_values().unique()
 
 # Player selection based on team
-        player = st.selectbox(f"Select a Player from {selected_team} -", team_players, index=None)
+player = st.selectbox(f"Select a Player from {selected_team} -", team_players, index=None)
 
 # Now filter data based on the selected player
-        filtered_data = df[df['playerName'] == player]
+filtered_data = df[df['playerName'] == player]
 
 
         # Player selection
