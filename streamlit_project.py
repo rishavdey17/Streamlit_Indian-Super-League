@@ -86,7 +86,7 @@ if match_names:
             assist = df[df['assist'] == 1]
             chance = df[df['keyPass'] == 1]
             passes = df[df['typeId'] == 1]
-            passes_successful = passes[passes['outcome'] == 1]
+            passes_successful = passes[(passes['outcome'] == 1) & ~(passes['eventId'].isin(chance['eventId']))]
             passes_unsuccessful = passes[passes['outcome'] == 0]
             
             recovery = df[df['typeId'] == 49]
