@@ -157,8 +157,6 @@ if match_names:
 
                 ax.legend(loc='upper left', bbox_to_anchor=(-0.2, 1.18), facecolor = 'black', labelcolor = 'white', prop = {'size': 10}, framealpha=0.5, ncol=4, edgecolor='#ffffff')
 
-                ax.legend(loc='upper left', bbox_to_anchor=(-0.2, 1.15), framealpha=0.9, ncol=4, edgecolor='#000000')
-
             # Plot player actions
             plot_actions(filtered_data, ax, pitch)
 
