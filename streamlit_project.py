@@ -62,6 +62,7 @@ if match_names:
             # Filter players based on selected team
             team_players = df[df['teamName'] == selected_team]['playerName'].dropna().sort_values().unique()
             player = st.selectbox(f"Select a Player from {selected_team} -", team_players, index=None)
+            player_position = df[df['playerName'] == player]['Position'].iloc[0] if player else None
 
             # Filter data for selected player
             def filter_data(df, player):
@@ -120,7 +121,7 @@ if match_names:
                 for df_subset in [assist, chance, passes, passes_successful, passes_unsuccessful]:
                     df_subset[['x', 'y', 'end_x', 'end_y']] = df_subset[['x', 'y', 'end_x', 'end_y']].astype(float)
 
-                if("Position" == "Goalkeeper"):
+                if player_position == "Goalkeeper":
                     de = pitch.kdeplot(passes.x, passes.y, ax=ax, shade=True, shade_lowest=False, alpha=0.4, n_levels=10, cmap='magma')
                     pitch.arrows(passes_successful.x, passes_successful.y, passes_successful.end_x, passes_successful.end_y, width=0.6, headwidth=5, headlength=5, color='#00ff00', ax=ax, label='Successful Pass')
                     pitch.arrows(passes_unsuccessful.x, passes_unsuccessful.y, passes_unsuccessful.end_x, passes_unsuccessful.end_y, width=0.6, headwidth=5, headlength=5, color='red', ax=ax, label='Unsuccessful Pass')
