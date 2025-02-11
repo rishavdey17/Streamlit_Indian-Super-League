@@ -7,6 +7,7 @@ import glob
 import os
 from mplsoccer.pitch import VerticalPitch
 from scipy.spatial import ConvexHull
+from natsort import natsorted
 
 # Add custom CSS to hide GitHub link in top-right corner
 if 'action_filter' not in st.session_state:
@@ -20,7 +21,7 @@ match_files = glob.glob(os.path.join(MATCHES_DIR, "*.csv"))
 match_names = [os.path.basename(file).replace(".csv", "") for file in match_files]
 
 if match_names:
-    selected_match = st.selectbox("Select A Match -", match_names)
+    selected_match = st.selectbox("Select A Match -", sorted(selected_match))
     st.write(f"Loaded data for: {selected_match}")
 
     file_path = os.path.join(MATCHES_DIR, f"{selected_match}.csv")
@@ -45,6 +46,10 @@ if match_names:
             team_players = df[df['teamName'] == selected_team]['playerName'].dropna().sort_values().unique()
             player = st.selectbox(f"Select a Player from {selected_team} -", team_players)
             player_position = df[df['playerName'] == player]['Position'].iloc[0] if player else None
+
+            st.write(f"**Selected Match:** {selected_match}")
+            st.write(f"**Selected Team:** {selected_team}")
+            st.write(f"**Selected Player:** {player}")
 
             filtered_data = df[df['playerName'] == player]
 
