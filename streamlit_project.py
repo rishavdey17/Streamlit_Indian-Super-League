@@ -21,7 +21,7 @@ match_files = glob.glob(os.path.join(MATCHES_DIR, "*.csv"))
 match_names = [os.path.basename(file).replace(".csv", "") for file in match_files]
 
 if match_names:
-    selected_match = st.selectbox("Select A Match -", sorted(selected_match))
+    selected_match = st.selectbox("Select A Match -", sorted(match_names))
     st.write(f"Loaded data for: {selected_match}")
 
     file_path = os.path.join(MATCHES_DIR, f"{selected_match}.csv")
