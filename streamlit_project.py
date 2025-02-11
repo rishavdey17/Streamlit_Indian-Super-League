@@ -180,7 +180,7 @@ if match_names:
                 ax.legend(loc='upper left', bbox_to_anchor=(-0.23, 1.17), facecolor = 'black', labelcolor = 'white', prop = {'size': 10}, framealpha=0.5, ncol=4, edgecolor='#ffffff')
 
                 endnote = "Made by Rishav. Data Source: OPTA. Built Using: Python and Streamlit."
-                plt.figtext(0.53, 0.115, endnote, ha="center", va="top", fontsize=13, color="white")
+                plt.figtext(0.515, 0.115, endnote, ha="center", va="top", fontsize=13, color="white")
                 
                 if player or selected_team:
                     st.pyplot(fig)
@@ -208,6 +208,9 @@ if match_names:
                 ax.scatter(chance['end_y'], chance['end_x'], s=50, c='black', edgecolor='#ffea00')
 
                 ax.legend(loc='upper left', bbox_to_anchor=(0.205, 1.06), facecolor = 'black', labelcolor = 'white', prop = {'size': 10}, framealpha=0.5, ncol=2, edgecolor='#ffffff')
+
+                endnote = "Made by Rishav. Data Source: OPTA. Built Using: Python and Streamlit."
+                plt.figtext(0.515, 0.115, endnote, ha="center", va="top", fontsize=13, color="white")
                 st.pyplot(fig)
 
             else:
@@ -222,6 +225,9 @@ if match_names:
                 ax.scatter(chance['end_y'], chance['end_x'], s=50, c='black', edgecolor='#ffea00')
 
                 ax.legend(loc='upper left', bbox_to_anchor=(0.205, 1.06), facecolor = 'black', labelcolor = 'white', prop = {'size': 10}, framealpha=0.5, ncol=2, edgecolor='#ffffff')
+
+                endnote = "Made by Rishav. Data Source: OPTA. Built Using: Python and Streamlit."
+                plt.figtext(0.515, 0.115, endnote, ha="center", va="top", fontsize=13, color="white")
                 st.pyplot(fig)
 
         if action_filter == "OFFENSIVE ACTIONS":
@@ -273,6 +279,9 @@ if match_names:
 
                 ax.legend(loc='upper left', bbox_to_anchor=(-0.2, 1.09), facecolor = 'black', labelcolor = 'white', prop = {'size': 10}, framealpha=0.5, ncol=4, edgecolor='#ffffff')
 
+                endnote = "Made by Rishav. Data Source: OPTA. Built Using: Python and Streamlit."
+                plt.figtext(0.515, 0.115, endnote, ha="center", va="top", fontsize=13, color="white")
+
                 if player or selected_team:
                     st.pyplot(fig)
 
@@ -297,6 +306,9 @@ if match_names:
                 plt.scatter(dispossessed['y'], dispossessed['x'], s = 100, c = '#cb0000', marker = 'p', edgecolor = '#000000', label = 'Dispossessed')
 
                 ax.legend(loc='upper left', bbox_to_anchor=(-0.2, 1.09), facecolor = 'black', labelcolor = 'white', prop = {'size': 10}, framealpha=0.5, ncol=4, edgecolor='#ffffff')
+
+                endnote = "Made by Rishav. Data Source: OPTA. Built Using: Python and Streamlit."
+                plt.figtext(0.515, 0.115, endnote, ha="center", va="top", fontsize=13, color="white")
 
                 if player or selected_team:
                     st.pyplot(fig)                  
@@ -349,6 +361,9 @@ if match_names:
                 plt.scatter(dribbled_past['y'], dribbled_past['x'], s = 50, c = '#cb0000', marker = 'x', edgecolor = '#000000', label = 'Dribbled Past')
 
                 ax.legend(loc='upper left', bbox_to_anchor=(-0.13, 1.09), facecolor = 'black', labelcolor = 'white', prop = {'size': 10}, framealpha=0.5, ncol=4, edgecolor='#ffffff')
+
+                endnote = "Made by Rishav. Data Source: OPTA. Built Using: Python and Streamlit."
+                plt.figtext(0.515, 0.115, endnote, ha="center", va="top", fontsize=13, color="white")
                     
                 if player or selected_team:
                     st.pyplot(fig)
@@ -370,6 +385,9 @@ if match_names:
                 plt.scatter(dribbled_past['y'], dribbled_past['x'], s = 50, c = '#cb0000', marker = 'x', edgecolor = '#000000', label = 'Dribbled Past')
 
                 ax.legend(loc='upper left', bbox_to_anchor=(-0.17, 1.12), facecolor = 'black', labelcolor = 'white', prop = {'size': 10}, framealpha=0.5, ncol=4, edgecolor='#ffffff')
+
+                endnote = "Made by Rishav. Data Source: OPTA. Built Using: Python and Streamlit."
+                plt.figtext(0.515, 0.115, endnote, ha="center", va="top", fontsize=13, color="white")
 
                 if player or selected_team:
                     st.pyplot(fig)
@@ -394,6 +412,9 @@ if match_names:
 
                 # Create a polygon from the convex hull with a semi-transparent fill
             polygon = pitch.polygon(hull1, color='#00FFFF', alpha=0.2, ax=ax)
+
+            endnote = "Made by Rishav. Data Source: OPTA. Built Using: Python and Streamlit."
+                plt.figtext(0.515, 0.115, endnote, ha="center", va="top", fontsize=13, color="white")
 
             if player or selected_team:
                 st.pyplot(fig)
