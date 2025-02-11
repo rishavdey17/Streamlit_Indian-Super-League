@@ -414,7 +414,7 @@ if match_names:
             polygon = pitch.polygon(hull1, color='#00FFFF', alpha=0.2, ax=ax)
 
             endnote = "Made by Rishav. Data Source: OPTA. Built Using: Python and Streamlit."
-                plt.figtext(0.515, 0.115, endnote, ha="center", va="top", fontsize=13, color="white")
+            plt.figtext(0.515, 0.115, endnote, ha="center", va="top", fontsize=13, color="white")
 
             if player or selected_team:
                 st.pyplot(fig)
