@@ -139,7 +139,7 @@ if match_names:
                 ax.legend(loc='upper left', bbox_to_anchor=(-0.19, 1.12), facecolor = 'black', labelcolor = 'white', prop = {'size': 10}, framealpha=0.5, ncol=4, edgecolor='#ffffff')
 
                 endnote = "Made by Rishav. Data Source: OPTA. Built Using: Python and Streamlit."
-                plt.figtext(0.5, 0.115, endnote, ha="center", va="top", fontsize=13, color="white")
+                plt.figtext(0.515, 0.115, endnote, ha="center", va="top", fontsize=13, color="white")
    
                 if player or selected_team:
                     st.pyplot(fig)
