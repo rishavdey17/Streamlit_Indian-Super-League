@@ -14,7 +14,7 @@ if 'action_filter' not in st.session_state:
     st.session_state.action_filter = "All Actions"
 
 st.title("Indian Super League 2024-25")
-st.subheader("Actions and Heat Map of all players in the match.")
+st.subheader("Visualizing the Actions, Passes and Heat Map of all players in the match.")
 
 MATCHES_DIR = "Matches"  # Directory containing match CSV files
 match_files = glob.glob(os.path.join(MATCHES_DIR, "*.csv"))
