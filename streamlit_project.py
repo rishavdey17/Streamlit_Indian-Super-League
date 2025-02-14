@@ -163,10 +163,10 @@ if match_names:
                 pitch.arrows(passes_unsuccessful.x, passes_unsuccessful.y, passes_unsuccessful.end_x, passes_unsuccessful.end_y, width=0.6, headwidth=5, headlength=5, color='red', ax=ax, label='Incomplete Pass')
 
                 plt.scatter(succ_dribble['y'], succ_dribble['x'], s= 200, c = '#fc3900', marker = '*', edgecolor = '#000000', label = 'Dribble')
-                plt.scatter(recovery['y'], recovery['x'], s= 120, c = '#fcd200', marker = 'H', edgecolor = '#000000', label = 'Ball Recovery')
-                plt.scatter(tackle['y'], tackle['x'], s= 120,c = 'cyan', marker = 'H', edgecolor = '#000000', label = 'Tackle')
-                plt.scatter(block['y'], block['x'], s = 120, c = '#009afd', marker = 'H', edgecolor = '#000000', label ='Block')
-                plt.scatter(interception['y'], interception['x'], s = 120, c = '#ff007f', marker = ',', edgecolor = '#000000', label = 'Interception')
+                plt.scatter(tackle['y'], tackle['x'], s= 130,c = '#d3d3d3', marker = 'X', edgecolor = '#000000', label = 'Tackle')
+                plt.scatter(recovery['y'], recovery['x'], s= 130, c = '#fcd200', marker = 'H', edgecolor = '#000000', label = 'Ball Recovery')
+                plt.scatter(block['y'], block['x'], s = 130, c = '#cyan', marker = 'H', edgecolor = '#000000', label ='Block') #009afd
+                plt.scatter(interception['y'], interception['x'], s = 130, c = '#ff007f', marker = 'H', edgecolor = '#000000', label = 'Interception')
                 plt.scatter(clearance['y'], clearance['x'], s = 100, c = '#9999ff', marker = 'x', edgecolor = '#000000', label = 'Clearance')
                 plt.scatter(offside['y'], offside['x'], s= 120, c = '#fcd200', marker = 'P', edgecolor = '#000000', label = 'Offside Provoked')
                 plt.scatter(shield['y'], shield['x'], s = 50, c = '#dd571c', marker = 'D', edgecolor = '#000000', label = 'Shielding Ball Out')
