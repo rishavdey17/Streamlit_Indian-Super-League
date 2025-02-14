@@ -352,7 +352,6 @@ if match_names:
                 plt.scatter(pickup['y'], pickup['x'], s = 120, c = '#dd571c', marker = '+', edgecolor = '#000000', label = 'Pick-Up')
                 plt.scatter(tackle['y'], tackle['x'], s= 130,c = '#bebebe', marker = 'H', edgecolor = '#000000', label = 'Tackle')
                 plt.scatter(recovery['y'], recovery['x'], s= 130, c = '#fcd200', marker = 'H', edgecolor = '#000000', label = 'Ball Recovery')
-                plt.scatter(block['y'], block['x'], s = 130, c = 'cyan', marker = 'H', edgecolor = '#000000', label ='Block') #009afd
                 plt.scatter(interception['y'], interception['x'], s = 130, c = '#ff007f', marker = 'H', edgecolor = '#000000', label = 'Interception')
                 plt.scatter(shield['y'], shield['x'], s = 50, c = '#dd571c', marker = 'D', edgecolor = '#000000', label = 'Shielding Ball Out')
                 plt.scatter(foul_won['y'], foul_won['x'], s= 120, c = '#008000', marker = 'X', edgecolor = '#000000', label = 'Foul Won')
