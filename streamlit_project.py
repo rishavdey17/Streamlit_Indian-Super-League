@@ -163,7 +163,7 @@ if match_names:
                 pitch.arrows(passes_unsuccessful.x, passes_unsuccessful.y, passes_unsuccessful.end_x, passes_unsuccessful.end_y, width=0.6, headwidth=5, headlength=5, color='red', ax=ax, label='Incomplete Pass')
 
                 plt.scatter(succ_dribble['y'], succ_dribble['x'], s= 200, c = '#fc3900', marker = '*', edgecolor = '#000000', label = 'Dribble')
-                plt.scatter(tackle['y'], tackle['x'], s= 130,c = '#d3d3d3', marker = 'X', edgecolor = '#000000', label = 'Tackle')
+                plt.scatter(tackle['y'], tackle['x'], s= 130,c = '#bebebe', marker = 'H', edgecolor = '#000000', label = 'Tackle')
                 plt.scatter(recovery['y'], recovery['x'], s= 130, c = '#fcd200', marker = 'H', edgecolor = '#000000', label = 'Ball Recovery')
                 plt.scatter(block['y'], block['x'], s = 130, c = 'cyan', marker = 'H', edgecolor = '#000000', label ='Block') #009afd
                 plt.scatter(interception['y'], interception['x'], s = 130, c = '#ff007f', marker = 'H', edgecolor = '#000000', label = 'Interception')
