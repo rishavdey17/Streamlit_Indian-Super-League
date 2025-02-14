@@ -165,7 +165,7 @@ if match_names:
                 plt.scatter(succ_dribble['y'], succ_dribble['x'], s= 200, c = '#fc3900', marker = '*', edgecolor = '#000000', label = 'Dribble')
                 plt.scatter(tackle['y'], tackle['x'], s= 130,c = '#d3d3d3', marker = 'X', edgecolor = '#000000', label = 'Tackle')
                 plt.scatter(recovery['y'], recovery['x'], s= 130, c = '#fcd200', marker = 'H', edgecolor = '#000000', label = 'Ball Recovery')
-                plt.scatter(block['y'], block['x'], s = 130, c = '#cyan', marker = 'H', edgecolor = '#000000', label ='Block') #009afd
+                plt.scatter(block['y'], block['x'], s = 130, c = 'cyan', marker = 'H', edgecolor = '#000000', label ='Block') #009afd
                 plt.scatter(interception['y'], interception['x'], s = 130, c = '#ff007f', marker = 'H', edgecolor = '#000000', label = 'Interception')
                 plt.scatter(clearance['y'], clearance['x'], s = 100, c = '#9999ff', marker = 'x', edgecolor = '#000000', label = 'Clearance')
                 plt.scatter(offside['y'], offside['x'], s= 120, c = '#fcd200', marker = 'P', edgecolor = '#000000', label = 'Offside Provoked')
