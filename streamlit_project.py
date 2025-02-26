@@ -165,7 +165,7 @@ if match_names:
             else:
                 de = pitch.kdeplot(passes.x, passes.y, ax=ax, shade=True, shade_lowest=False, alpha=0.4, n_levels=10, cmap='magma')
 
-                pitch.scatter(goal['x'], goal['y'], s=120, c='#00ff00', edgecolors='#06402b', label='Goal', marker = 'football', ax=ax)
+                pitch.scatter(goal['x'], goal['y'], s=120, c='#06402b', edgecolors='#00ff00', label='Goal', marker = 'football', ax=ax)
                 ax.scatter(shot_saved['y'], shot_saved['x'], s=120, c='#ff7c60', edgecolor='#000000', label='Saved/Blocked Shot')
                 ax.scatter(shot_post['y'], shot_post['x'], s=120, c='w', edgecolor='#000000', label='Shot Off Woodwork')
                 ax.scatter(shot_miss['y'], shot_miss['x'], s=120, c='r', edgecolor='#000000', label='Shot Off Target')
@@ -276,7 +276,7 @@ if match_names:
 
             if player_position == 'Goalkeeper':
                 de = pitch.kdeplot(passes.x, passes.y, ax=ax, shade=True, shade_lowest=False, alpha=0.4, n_levels=10, cmap='magma')
-                pitch.scatter(goal['x'], goal['y'], s=120, c='#00ff00', edgecolors='#06402b', label='Goal', marker = 'football', ax =ax)
+                pitch.scatter(goal['x'], goal['y'], s=120, c='#06402b', edgecolors='#00ff00', label='Goal', marker = 'football', ax=ax)
                 ax.scatter(shot_saved['y'], shot_saved['x'], s=120, c='#ff7c60', edgecolor='#000000', label='Saved/Blocked Shot')
                 ax.scatter(shot_post['y'], shot_post['x'], s=120, c='w', edgecolor='#000000', label='Shot Off Woodwork')
                 ax.scatter(shot_miss['y'], shot_miss['x'], s=120, c='r', edgecolor='#000000', label='Shot Off Target')
@@ -305,7 +305,7 @@ if match_names:
 
             else:
                 de = pitch.kdeplot(passes.x, passes.y, ax=ax, shade=True, shade_lowest=False, alpha=0.4, n_levels=10, cmap='magma')
-                pitch.scatter(goal['x'], goal['y'], s=120, c='#00ff00', edgecolors='#06402b', label='Goal', marker = 'football', ax=ax)
+                pitch.scatter(goal['x'], goal['y'], s=120, c='#06402b', edgecolors='#00ff00', label='Goal', marker = 'football', ax=ax)
                 ax.scatter(shot_saved['y'], shot_saved['x'], s=120, c='#ff7c60', edgecolor='#000000', label='Saved/Blocked Shot')
                 ax.scatter(shot_post['y'], shot_post['x'], s=120, c='w', edgecolor='#000000', label='Shot Off Woodwork')
                 ax.scatter(shot_miss['y'], shot_miss['x'], s=120, c='r', edgecolor='#000000', label='Shot Off Target')
