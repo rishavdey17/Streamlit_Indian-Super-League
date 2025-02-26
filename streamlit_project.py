@@ -332,6 +332,7 @@ if match_names:
                     st.pyplot(fig)                  
                 
         if action_filter == "DEFENSIVE ACTIONS":
+            goal = filtered_data[filtered_data['typeId'] == 16]
             passes = filtered_data[filtered_data['typeId'] == 1]
 
             qualifier_columns = [col for col in goal.columns if col.startswith('qualifier/') and col.endswith('/value')]
