@@ -9,7 +9,9 @@ from mplsoccer import VerticalPitch
 from scipy.spatial import ConvexHull
 from natsort import natsorted
 
-# Add custom CSS to hide GitHub link in top-right corner
+if "selected_match" not in st.session_state:
+    st.session_state.selected_match = ""
+
 if 'action_filter' not in st.session_state:
     st.session_state.action_filter = "All Actions"
 
