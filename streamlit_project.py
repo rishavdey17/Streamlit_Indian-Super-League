@@ -22,7 +22,10 @@ match_names = [os.path.basename(file).replace(".csv", "") for file in match_file
 
 if match_names:
     selected_match = st.selectbox("Select A Match -", sorted(match_names, reverse = True))
-    st.write(f"Loaded data for: {selected_match}")
+    
+    if selected_match != st.session_state.selected_match:
+        st.session_state.selected_match = selected_match
+        st.session_state.action_filter = "All Actions"
 
     file_path = os.path.join(MATCHES_DIR, f"{selected_match}.csv")
     
