@@ -116,11 +116,12 @@ if match_names:
 
             qualifier_columns = [col for col in goal.columns if col.startswith('qualifier/') and col.endswith('/value')]
 
-            # Check if any of these columns contain 'OWN_GOAL'
-            if qualifier_columns:  # Ensure qualifier columns exist
-                own_goal = goal[goal[qualifier_columns].apply(lambda row: 'OWN_GOAL' in row.values, axis=1)]
-            else:
-                own_goal = pd.DataFrame() 
+            # Filter rows where any qualifier column contains 'OWN_GOAL'
+            own_goal = goal[goal[qualifier_columns].apply(lambda row: 'OWN_GOAL' in row.values, axis=1)] if qualifier_columns else pd.DataFrame()
+
+            # Ensure x and y exist, otherwise create empty placeholders
+            if own_goal.empty:
+                own_goal = pd.DataFrame({'x': [None], 'y': [None]})  # Placeholder to show the legend
 
             for df_subset in [assist, chance, passes, passes_successful, passes_unsuccessful]:
                 df_subset[['x', 'y', 'end_x', 'end_y']] = df_subset[['x', 'y', 'end_x', 'end_y']].astype(float)
@@ -355,11 +356,12 @@ if match_names:
             goal = filtered_data[filtered_data['typeId'] == 16]
             qualifier_columns = [col for col in goal.columns if col.startswith('qualifier/') and col.endswith('/value')]
 
-            # Check if any of these columns contain 'OWN_GOAL'
-            if qualifier_columns:  # Ensure qualifier columns exist
-                own_goal = goal[goal[qualifier_columns].apply(lambda row: 'OWN_GOAL' in row.values, axis=1)]
-            else:
-                own_goal = pd.DataFrame() 
+            # Filter rows where any qualifier column contains 'OWN_GOAL'
+            own_goal = goal[goal[qualifier_columns].apply(lambda row: 'OWN_GOAL' in row.values, axis=1)] if qualifier_columns else pd.DataFrame()
+
+            # Ensure x and y exist, otherwise create empty placeholders
+            if own_goal.empty:
+                own_goal = pd.DataFrame({'x': [None], 'y': [None]})  # Placeholder to show the legend
 
             for df_subset in [passes]:
                 df_subset[['x', 'y', 'end_x', 'end_y']] = df_subset[['x', 'y', 'end_x', 'end_y']].astype(float)
