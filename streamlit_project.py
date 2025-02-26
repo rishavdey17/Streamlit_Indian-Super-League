@@ -114,6 +114,8 @@ if match_names:
             pickup = filtered_data[filtered_data['typeId'] == 52]
             punch = filtered_data[filtered_data['typeId'] == 41]
 
+            own_goal = goal[goal.filter(like="qualifier").apply(lambda row: row.astype(str).str.contains("OWN_GOAL", na=False).any(), axis=1)]
+
             for df_subset in [assist, chance, passes, passes_successful, passes_unsuccessful]:
                 df_subset[['x', 'y', 'end_x', 'end_y']] = df_subset[['x', 'y', 'end_x', 'end_y']].astype(float)
 
@@ -135,6 +137,7 @@ if match_names:
                 plt.scatter(foul_committed['y'], foul_committed['x'], s= 120, c = '#c21919', marker = 'X', edgecolor = '#000000', label = 'Foul Committed')
                 plt.scatter(dispossessed['y'], dispossessed['x'], s = 100, c = '#cb0000', marker = 'p', edgecolor = '#000000', label = 'Dispossessed')
                 plt.scatter(dribbled_past['y'], dribbled_past['x'], s = 50, c = '#cb0000', marker = 'x', edgecolor = '#000000', label = 'Dribbled Past')
+                pitch.scatter(own_goal['x'], own_goal['y'], s=120, c='red', edgecolors='white', label='Own Goal', marker = 'football', ax=ax)
 
                 ax.legend(loc='upper left', bbox_to_anchor=(-0.19, 1.12), facecolor = 'black', labelcolor = 'white', prop = {'size': 10}, framealpha=0.5, ncol=4, edgecolor='#ffffff')
 
@@ -148,7 +151,7 @@ if match_names:
             else:
                 de = pitch.kdeplot(passes.x, passes.y, ax=ax, shade=True, shade_lowest=False, alpha=0.4, n_levels=10, cmap='magma')
 
-                pitch.scatter(goal['x'], goal['y'], s=150, c='#00ff00', edgecolors='#06402b', label='Goal', marker = 'football', ax=ax)
+                pitch.scatter(goal['x'], goal['y'], s=120, c='#00ff00', edgecolors='#06402b', label='Goal', marker = 'football', ax=ax)
                 ax.scatter(shot_saved['y'], shot_saved['x'], s=120, c='#ff7c60', edgecolor='#000000', label='Saved/Blocked Shot')
                 ax.scatter(shot_post['y'], shot_post['x'], s=120, c='w', edgecolor='#000000', label='Shot Off Woodwork')
                 ax.scatter(shot_miss['y'], shot_miss['x'], s=120, c='r', edgecolor='#000000', label='Shot Off Target')
@@ -176,6 +179,7 @@ if match_names:
                 plt.scatter(aerial_lost['y'], aerial_lost['x'], s = 100, c = '#c21919', marker = '^', edgecolor = '#000000', label = 'Aerial Lost')
                 plt.scatter(dispossessed['y'], dispossessed['x'], s = 100, c = '#cb0000', marker = 'p', edgecolor = '#000000', label = 'Dispossessed')
                 plt.scatter(dribbled_past['y'], dribbled_past['x'], s = 50, c = '#cb0000', marker = 'x', edgecolor = '#000000', label = 'Dribbled Past')
+                pitch.scatter(own_goal['x'], own_goal['y'], s=120, c='red', edgecolors='white', label='Own Goal', marker = 'football', ax=ax)
 
                 ax.legend(loc='upper left', bbox_to_anchor=(-0.23, 1.17), facecolor = 'black', labelcolor = 'white', prop = {'size': 10}, framealpha=0.5, ncol=4, edgecolor='#ffffff')
 
@@ -258,7 +262,7 @@ if match_names:
 
             if player_position == 'Goalkeeper':
                 de = pitch.kdeplot(passes.x, passes.y, ax=ax, shade=True, shade_lowest=False, alpha=0.4, n_levels=10, cmap='magma')
-                pitch.scatter(goal['x'], goal['y'], s=150, c='#00ff00', edgecolors='#06402b', label='Goal', marker = 'football', ax =ax)
+                pitch.scatter(goal['x'], goal['y'], s=120, c='#00ff00', edgecolors='#06402b', label='Goal', marker = 'football', ax =ax)
                 ax.scatter(shot_saved['y'], shot_saved['x'], s=120, c='#ff7c60', edgecolor='#000000', label='Saved/Blocked Shot')
                 ax.scatter(shot_post['y'], shot_post['x'], s=120, c='w', edgecolor='#000000', label='Shot Off Woodwork')
                 ax.scatter(shot_miss['y'], shot_miss['x'], s=120, c='r', edgecolor='#000000', label='Shot Off Target')
@@ -287,7 +291,7 @@ if match_names:
 
             else:
                 de = pitch.kdeplot(passes.x, passes.y, ax=ax, shade=True, shade_lowest=False, alpha=0.4, n_levels=10, cmap='magma')
-                pitch.scatter(goal['x'], goal['y'], s=150, c='#00ff00', edgecolors='#06402b', label='Goal', marker = 'football', ax=ax)
+                pitch.scatter(goal['x'], goal['y'], s=120, c='#00ff00', edgecolors='#06402b', label='Goal', marker = 'football', ax=ax)
                 ax.scatter(shot_saved['y'], shot_saved['x'], s=120, c='#ff7c60', edgecolor='#000000', label='Saved/Blocked Shot')
                 ax.scatter(shot_post['y'], shot_post['x'], s=120, c='w', edgecolor='#000000', label='Shot Off Woodwork')
                 ax.scatter(shot_miss['y'], shot_miss['x'], s=120, c='r', edgecolor='#000000', label='Shot Off Target')
@@ -342,6 +346,9 @@ if match_names:
             pickup = filtered_data[filtered_data['typeId'] == 52]
             punch = filtered_data[filtered_data['typeId'] == 41]
 
+            goal = filtered_data[filtered_data['typeId'] == 16]
+            own_goal = goal[goal.filter(like="qualifier").apply(lambda row: row.astype(str).str.contains("OWN_GOAL", na=False).any(), axis=1)]
+
             for df_subset in [passes]:
                 df_subset[['x', 'y', 'end_x', 'end_y']] = df_subset[['x', 'y', 'end_x', 'end_y']].astype(float)
 
@@ -358,6 +365,7 @@ if match_names:
                 plt.scatter(foul_committed['y'], foul_committed['x'], s= 120, c = '#c21919', marker = 'X', edgecolor = '#000000', label = 'Foul Committed')
                 plt.scatter(dispossessed['y'], dispossessed['x'], s = 100, c = '#cb0000', marker = 'p', edgecolor = '#000000', label = 'Dispossessed')
                 plt.scatter(dribbled_past['y'], dribbled_past['x'], s = 50, c = '#cb0000', marker = 'x', edgecolor = '#000000', label = 'Dribbled Past')
+                pitch.scatter(own_goal['x'], own_goal['y'], s=120, c='red', edgecolors='white', label='Own Goal', marker = 'football', ax=ax)
 
                 ax.legend(loc='upper left', bbox_to_anchor=(-0.13, 1.09), facecolor = 'black', labelcolor = 'white', prop = {'size': 10}, framealpha=0.5, ncol=4, edgecolor='#ffffff')
 
@@ -382,6 +390,7 @@ if match_names:
                 plt.scatter(aerial_lost['y'], aerial_lost['x'], s = 100, c = '#c21919', marker = '^', edgecolor = '#000000', label = 'Aerial Lost')
                 plt.scatter(dispossessed['y'], dispossessed['x'], s = 100, c = '#cb0000', marker = 'p', edgecolor = '#000000', label = 'Dispossessed')
                 plt.scatter(dribbled_past['y'], dribbled_past['x'], s = 50, c = '#cb0000', marker = 'x', edgecolor = '#000000', label = 'Dribbled Past')
+                pitch.scatter(own_goal['x'], own_goal['y'], s=120, c='red', edgecolors='white', label='Own Goal', marker = 'football', ax=ax)
 
                 ax.legend(loc='upper left', bbox_to_anchor=(-0.17, 1.12), facecolor = 'black', labelcolor = 'white', prop = {'size': 10}, framealpha=0.5, ncol=4, edgecolor='#ffffff')
 
