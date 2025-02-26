@@ -114,7 +114,13 @@ if match_names:
             pickup = filtered_data[filtered_data['typeId'] == 52]
             punch = filtered_data[filtered_data['typeId'] == 41]
 
-            own_goal = goal[goal.filter(like="qualifier").apply(lambda row: row.astype(str).str.contains("OWN_GOAL", na=False).any(), axis=1)]
+            qualifier_columns = [col for col in goal.columns if col.startswith('qualifier/') and col.endswith('/value')]
+
+            # Check if any of these columns contain 'OWN_GOAL'
+            if qualifier_columns:  # Ensure qualifier columns exist
+                own_goal = goal[goal[qualifier_columns].apply(lambda row: 'OWN_GOAL' in row.values, axis=1)]
+            else:
+                own_goal = pd.DataFrame() 
 
             for df_subset in [assist, chance, passes, passes_successful, passes_unsuccessful]:
                 df_subset[['x', 'y', 'end_x', 'end_y']] = df_subset[['x', 'y', 'end_x', 'end_y']].astype(float)
@@ -347,7 +353,13 @@ if match_names:
             punch = filtered_data[filtered_data['typeId'] == 41]
 
             goal = filtered_data[filtered_data['typeId'] == 16]
-            own_goal = goal[goal.filter(like="qualifier").apply(lambda row: row.astype(str).str.contains("OWN_GOAL", na=False).any(), axis=1)]
+            qualifier_columns = [col for col in goal.columns if col.startswith('qualifier/') and col.endswith('/value')]
+
+            # Check if any of these columns contain 'OWN_GOAL'
+            if qualifier_columns:  # Ensure qualifier columns exist
+                own_goal = goal[goal[qualifier_columns].apply(lambda row: 'OWN_GOAL' in row.values, axis=1)]
+            else:
+                own_goal = pd.DataFrame() 
 
             for df_subset in [passes]:
                 df_subset[['x', 'y', 'end_x', 'end_y']] = df_subset[['x', 'y', 'end_x', 'end_y']].astype(float)
