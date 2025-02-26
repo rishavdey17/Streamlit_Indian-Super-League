@@ -75,6 +75,18 @@ if match_names:
 
         if action_filter == "ALL ACTIONS IN THE MATCH":
             goal = filtered_data[filtered_data['typeId'] == 16]
+
+            qualifier_columns = [col for col in goal.columns if col.startswith('qualifier/') and col.endswith('/value')]
+
+            if qualifier_columns:
+                own_goal = goal[goal[qualifier_columns].apply(lambda row: 'OWN_GOAL' in row.values, axis=1)]
+            else:
+                own_goal = pd.DataFrame()
+
+            # Ensure x and y exist to prevent KeyError
+            if own_goal.empty or 'x' not in own_goal.columns or 'y' not in own_goal.columns:
+                own_goal = pd.DataFrame({'x': [], 'y': []})  # Empty DataFrame to prevent errors
+                
             shot_miss = filtered_data[filtered_data['typeId'] == 13]
             shot_post = filtered_data[filtered_data['typeId'] == 14]
             shot_saved = filtered_data[filtered_data['typeId'] == 15]
@@ -113,15 +125,6 @@ if match_names:
                 
             pickup = filtered_data[filtered_data['typeId'] == 52]
             punch = filtered_data[filtered_data['typeId'] == 41]
-
-            qualifier_columns = [col for col in goal.columns if col.startswith('qualifier/') and col.endswith('/value')]
-
-            # Filter rows where any qualifier column contains 'OWN_GOAL'
-            own_goal = goal[goal[qualifier_columns].apply(lambda row: 'OWN_GOAL' in row.values, axis=1)] if qualifier_columns else pd.DataFrame()
-
-            # Ensure x and y exist, otherwise create empty placeholders
-            if own_goal.empty:
-                own_goal = pd.DataFrame({'x': [None], 'y': [None]})  # Placeholder to show the legend
 
             for df_subset in [assist, chance, passes, passes_successful, passes_unsuccessful]:
                 df_subset[['x', 'y', 'end_x', 'end_y']] = df_subset[['x', 'y', 'end_x', 'end_y']].astype(float)
@@ -325,6 +328,17 @@ if match_names:
                 
         if action_filter == "DEFENSIVE ACTIONS":
             passes = filtered_data[filtered_data['typeId'] == 1]
+
+            qualifier_columns = [col for col in goal.columns if col.startswith('qualifier/') and col.endswith('/value')]
+
+            if qualifier_columns:
+                own_goal = goal[goal[qualifier_columns].apply(lambda row: 'OWN_GOAL' in row.values, axis=1)]
+            else:
+                own_goal = pd.DataFrame()
+
+            # Ensure x and y exist to prevent KeyError
+            if own_goal.empty or 'x' not in own_goal.columns or 'y' not in own_goal.columns:
+                own_goal = pd.DataFrame({'x': [], 'y': []})  # Empty DataFrame to prevent errors
                 
             recovery = filtered_data[filtered_data['typeId'] == 49]
             offside = filtered_data[filtered_data['typeId'] == 55]
@@ -351,19 +365,6 @@ if match_names:
                
             pickup = filtered_data[filtered_data['typeId'] == 52]
             punch = filtered_data[filtered_data['typeId'] == 41]
-
-            goal = filtered_data[filtered_data['typeId'] == 16]
-            qualifier_columns = [col for col in goal.columns if col.startswith('qualifier/') and col.endswith('/value')]
-
-            # Filter rows where any qualifier column contains 'OWN_GOAL'
-            own_goal = goal[goal[qualifier_columns].apply(lambda row: 'OWN_GOAL' in row.values, axis=1)] if qualifier_columns else pd.DataFrame()
-
-            # Ensure x and y exist, otherwise create empty placeholders
-            if own_goal.empty:
-                own_goal = pd.DataFrame({'x': [None], 'y': [None]})  # Placeholder to show the legend
-
-            for df_subset in [passes]:
-                df_subset[['x', 'y', 'end_x', 'end_y']] = df_subset[['x', 'y', 'end_x', 'end_y']].astype(float)
 
             if player_position == 'Goalkeeper':
                 de = pitch.kdeplot(passes.x, passes.y, ax=ax, shade=True, shade_lowest=False, alpha=0.4, n_levels=10, cmap='magma')
